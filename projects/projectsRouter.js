@@ -6,9 +6,10 @@ const projects = require('../data/helpers/projectModel');
 router.use(express.json());
 
 router.get('/', (req, res) => {
-    
+        
     projects.get()
     .then(projects => {
+        console.log(projects)
         res.status(200).json(projects)
     })
     .catch(error => {
