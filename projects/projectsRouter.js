@@ -6,15 +6,14 @@ const projects = require('../data/helpers/projectModel');
 router.use(express.json());
 
 router.get('/', (req, res) => {
-        
     projects.get()
     .then(projects => {
-        console.log(projects)
-        res.status(200).json(projects)
+        console.log(projects);
+        res.status(200).json(projects);
     })
     .catch(error => {
         console.log(error);
-        req.status(500).json({message: "There was an error retrieving projects"})
+        res.status(500).json({message: "There was an error retrieving projects"})
     })
 })
 
@@ -55,4 +54,5 @@ router.delete('/project/:id', (req, res) => {
         res.status(500).json({message: "There was an error deleting project"})
     })
 })
+
 module.exports = router;

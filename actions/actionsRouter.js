@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     })
     .catch(error => {
         console.log(error);
-        req.status(500).json({message: "There was an error retrieving actions"})
+        res.status(500).json({message: "There was an error retrieving actions"})
     })
 })
 
